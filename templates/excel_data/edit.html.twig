@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer le fichier{% endblock %}
+
+{% block body %}
+    <h1>Editer</h1>
+
+    {{ include('excel_data/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('app_excel_data_index') }}">Voir la liste</a>
+
+    {{ include('excel_data/_delete_form.html.twig') }}
+{% endblock %}

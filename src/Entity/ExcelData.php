@@ -14,64 +14,64 @@ class ExcelData
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $Compte_Affaire = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $Compte_evenement = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $Compte_dernier_evenement = null;
-
-    #[ORM\Column(type: Types::BIGINT)]
-    private ?string $Numero_fiche = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $compteAffaire = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $libelle_civilite = null;
+    private ?string $compteEvenement = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $proprietaire_actuel = null;
+    private ?string $compteDernierEvenement = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $Nom = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $Prenom = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $num_et_nom_de_voie = null;
+    #[ORM\Column(type: Types::BIGINT, nullable: true)]
+    private ?string $numeroFiche = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $Complement_adresse = null;
+    private ?string $libelleCivilite = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $Code_postal = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $proprietaireActuel = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255,nullable: true)]
+    private ?string $nom = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $prenom = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $numEtNomDeVoie = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $complementAdresse = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $codePostal = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $ville = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $telephone_domicile = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $telephoneDomicile = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $telephone_portable = null;
+    private ?string $telephonePortable = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $telephone_job = null;
+    private ?string $telephoneJob = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $email = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $date_de_mise_en_circulation = null;
+    private ?\DateTimeInterface $dateDeMiseEnCirculation = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $date_achat = null;
+    private ?\DateTimeInterface $dateAchat = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $date_dernier_evenement = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $dateDernierEvenement = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $marque = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -80,14 +80,14 @@ class ExcelData
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $version = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $VIN = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $immatriculation = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $type_de_prospect = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $typeDeProspect = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $kilometrage = null;
@@ -96,28 +96,28 @@ class ExcelData
     private ?string $energie = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $vendeur_VN = null;
+    private ?string $vendeurVN = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $vendeur_VO = null;
+    private ?string $vendeurVO = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $commentaire_de_facturation = null;
+    private ?string $commentaireDeFacturation = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $type_VN_VO = null;
+    private ?string $type = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $numero_dossier = null;
+    private ?string $numeroDossier = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $intermediaire_de_vente = null;
+    private ?string $intermediaireDeVente = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $date_evenement = null;
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $dateEvenement = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $origine_evenement = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $origineEvenement = null;
 
     public function getId(): ?int
     {
@@ -126,132 +126,132 @@ class ExcelData
 
     public function getCompteAffaire(): ?string
     {
-        return $this->Compte_Affaire;
+        return $this->compteAffaire;
     }
 
-    public function setCompteAffaire(string $Compte_Affaire): static
+    public function setCompteAffaire(string $compteAffaire): static
     {
-        $this->Compte_Affaire = $Compte_Affaire;
+        $this->compteAffaire = $compteAffaire;
 
         return $this;
     }
 
     public function getCompteEvenement(): ?string
     {
-        return $this->Compte_evenement;
+        return $this->compteEvenement;
     }
 
-    public function setCompteEvenement(string $Compte_evenement): static
+    public function setCompteEvenement(?string $compteEvenement): static
     {
-        $this->Compte_evenement = $Compte_evenement;
+        $this->compteEvenement = $compteEvenement;
 
         return $this;
     }
 
     public function getCompteDernierEvenement(): ?string
     {
-        return $this->Compte_dernier_evenement;
+        return $this->compteDernierEvenement;
     }
 
-    public function setCompteDernierEvenement(string $Compte_dernier_evenement): static
+    public function setCompteDernierEvenement(?string $compteDernierEvenement): static
     {
-        $this->Compte_dernier_evenement = $Compte_dernier_evenement;
+        $this->compteDernierEvenement = $compteDernierEvenement;
 
         return $this;
     }
 
     public function getNumeroFiche(): ?string
     {
-        return $this->Numero_fiche;
+        return $this->numeroFiche;
     }
 
-    public function setNumeroFiche(string $Numero_fiche): static
+    public function setNumeroFiche(?string $numeroFiche): static
     {
-        $this->Numero_fiche = $Numero_fiche;
+        $this->numeroFiche = $numeroFiche;
 
         return $this;
     }
 
     public function getLibelleCivilite(): ?string
     {
-        return $this->libelle_civilite;
+        return $this->libelleCivilite;
     }
 
-    public function setLibelleCivilite(?string $libelle_civilite): static
+    public function setLibelleCivilite(?string $libelleCivilite): static
     {
-        $this->libelle_civilite = $libelle_civilite;
+        $this->libelleCivilite = $libelleCivilite;
 
         return $this;
     }
 
     public function getProprietaireActuel(): ?string
     {
-        return $this->proprietaire_actuel;
+        return $this->proprietaireActuel;
     }
 
-    public function setProprietaireActuel(?string $proprietaire_actuel): static
+    public function setProprietaireActuel(?string $proprietaireActuel): static
     {
-        $this->proprietaire_actuel = $proprietaire_actuel;
+        $this->proprietaireActuel = $proprietaireActuel;
 
         return $this;
     }
 
     public function getNom(): ?string
     {
-        return $this->Nom;
+        return $this->nom;
     }
 
-    public function setNom(string $Nom): static
+    public function setNom(?string $nom): static
     {
-        $this->Nom = $Nom;
+        $this->nom = $nom;
 
         return $this;
     }
 
     public function getPrenom(): ?string
     {
-        return $this->Prenom;
+        return $this->prenom;
     }
 
-    public function setPrenom(?string $Prenom): static
+    public function setPrenom(?string $prenom): static
     {
-        $this->Prenom = $Prenom;
+        $this->prenom = $prenom;
 
         return $this;
     }
 
     public function getNumEtNomDeVoie(): ?string
     {
-        return $this->num_et_nom_de_voie;
+        return $this->numEtNomDeVoie;
     }
 
-    public function setNumEtNomDeVoie(string $num_et_nom_de_voie): static
+    public function setNumEtNomDeVoie(?string $numEtNomDeVoie): static
     {
-        $this->num_et_nom_de_voie = $num_et_nom_de_voie;
+        $this->numEtNomDeVoie = $numEtNomDeVoie;
 
         return $this;
     }
 
     public function getComplementAdresse(): ?string
     {
-        return $this->Complement_adresse;
+        return $this->complementAdresse;
     }
 
-    public function setComplementAdresse(?string $Complement_adresse): static
+    public function setComplementAdresse(?string $complementAdresse): static
     {
-        $this->Complement_adresse = $Complement_adresse;
+        $this->complementAdresse = $complementAdresse;
 
         return $this;
     }
 
     public function getCodePostal(): ?string
     {
-        return $this->Code_postal;
+        return $this->codePostal;
     }
 
-    public function setCodePostal(string $Code_postal): static
+    public function setCodePostal(?string $codePostal): static
     {
-        $this->Code_postal = $Code_postal;
+        $this->codePostal = $codePostal;
 
         return $this;
     }
@@ -261,7 +261,7 @@ class ExcelData
         return $this->ville;
     }
 
-    public function setVille(string $ville): static
+    public function setVille(?string $ville): static
     {
         $this->ville = $ville;
 
@@ -270,36 +270,36 @@ class ExcelData
 
     public function getTelephoneDomicile(): ?string
     {
-        return $this->telephone_domicile;
+        return $this->telephoneDomicile;
     }
 
-    public function setTelephoneDomicile(string $telephone_domicile): static
+    public function setTelephoneDomicile(?string $telephoneDomicile): static
     {
-        $this->telephone_domicile = $telephone_domicile;
+        $this->telephoneDomicile = $telephoneDomicile;
 
         return $this;
     }
 
     public function getTelephonePortable(): ?string
     {
-        return $this->telephone_portable;
+        return $this->telephonePortable;
     }
 
-    public function setTelephonePortable(?string $telephone_portable): static
+    public function setTelephonePortable(?string $telephonePortable): static
     {
-        $this->telephone_portable = $telephone_portable;
+        $this->telephonePortable = $telephonePortable;
 
         return $this;
     }
 
     public function getTelephoneJob(): ?string
     {
-        return $this->telephone_job;
+        return $this->telephoneJob;
     }
 
-    public function setTelephoneJob(?string $telephone_job): static
+    public function setTelephoneJob(?string $telephoneJob): static
     {
-        $this->telephone_job = $telephone_job;
+        $this->telephoneJob = $telephoneJob;
 
         return $this;
     }
@@ -318,36 +318,36 @@ class ExcelData
 
     public function getDateDeMiseEnCirculation(): ?\DateTimeInterface
     {
-        return $this->date_de_mise_en_circulation;
+        return $this->dateDeMiseEnCirculation;
     }
 
-    public function setDateDeMiseEnCirculation(?\DateTimeInterface $date_de_mise_en_circulation): static
+    public function setDateDeMiseEnCirculation(?\DateTimeInterface $dateDeMiseEnCirculation): static
     {
-        $this->date_de_mise_en_circulation = $date_de_mise_en_circulation;
+        $this->dateDeMiseEnCirculation = $dateDeMiseEnCirculation;
 
         return $this;
     }
 
     public function getDateAchat(): ?\DateTimeInterface
     {
-        return $this->date_achat;
+        return $this->dateAchat;
     }
 
-    public function setDateAchat(?\DateTimeInterface $date_achat): static
+    public function setDateAchat(?\DateTimeInterface $dateAchat): static
     {
-        $this->date_achat = $date_achat;
+        $this->dateAchat = $dateAchat;
 
         return $this;
     }
 
     public function getDateDernierEvenement(): ?\DateTimeInterface
     {
-        return $this->date_dernier_evenement;
+        return $this->dateDernierEvenement;
     }
 
-    public function setDateDernierEvenement(\DateTimeInterface $date_dernier_evenement): static
+    public function setDateDernierEvenement(?\DateTimeInterface $dateDernierEvenement): static
     {
-        $this->date_dernier_evenement = $date_dernier_evenement;
+        $this->dateDernierEvenement = $dateDernierEvenement;
 
         return $this;
     }
@@ -357,7 +357,7 @@ class ExcelData
         return $this->marque;
     }
 
-    public function setMarque(string $marque): static
+    public function setMarque(?string $marque): static
     {
         $this->marque = $marque;
 
@@ -393,7 +393,7 @@ class ExcelData
         return $this->VIN;
     }
 
-    public function setVIN(string $VIN): static
+    public function setVIN(?string $VIN): static
     {
         $this->VIN = $VIN;
 
@@ -414,12 +414,12 @@ class ExcelData
 
     public function getTypeDeProspect(): ?string
     {
-        return $this->type_de_prospect;
+        return $this->typeDeProspect;
     }
 
-    public function setTypeDeProspect(string $type_de_prospect): static
+    public function setTypeDeProspect(?string $typeDeProspect): static
     {
-        $this->type_de_prospect = $type_de_prospect;
+        $this->typeDeProspect = $typeDeProspect;
 
         return $this;
     }
@@ -450,96 +450,96 @@ class ExcelData
 
     public function getVendeurVN(): ?string
     {
-        return $this->vendeur_VN;
+        return $this->vendeurVN;
     }
 
-    public function setVendeurVN(?string $vendeur_VN): static
+    public function setVendeurVN(?string $vendeurVN): static
     {
-        $this->vendeur_VN = $vendeur_VN;
+        $this->vendeurVN = $vendeurVN;
 
         return $this;
     }
 
     public function getVendeurVO(): ?string
     {
-        return $this->vendeur_VO;
+        return $this->vendeurVO;
     }
 
-    public function setVendeurVO(?string $vendeur_VO): static
+    public function setVendeurVO(?string $vendeurVO): static
     {
-        $this->vendeur_VO = $vendeur_VO;
+        $this->vendeurVO = $vendeurVO;
 
         return $this;
     }
 
     public function getCommentaireDeFacturation(): ?string
     {
-        return $this->commentaire_de_facturation;
+        return $this->commentaireDeFacturation;
     }
 
-    public function setCommentaireDeFacturation(?string $commentaire_de_facturation): static
+    public function setCommentaireDeFacturation(?string $commentaireDeFacturation): static
     {
-        $this->commentaire_de_facturation = $commentaire_de_facturation;
+        $this->commentaireDeFacturation = $commentaireDeFacturation;
 
         return $this;
     }
 
-    public function getTypeVNVO(): ?string
+    public function getType(): ?string
     {
-        return $this->type_VN_VO;
+        return $this->type;
     }
 
-    public function setTypeVNVO(?string $type_VN_VO): static
+    public function setType(?string $type): static
     {
-        $this->type_VN_VO = $type_VN_VO;
+        $this->type = $type;
 
         return $this;
     }
 
     public function getNumeroDossier(): ?string
     {
-        return $this->numero_dossier;
+        return $this->numeroDossier;
     }
 
-    public function setNumeroDossier(?string $numero_dossier): static
+    public function setNumeroDossier(?string $numeroDossier): static
     {
-        $this->numero_dossier = $numero_dossier;
+        $this->numeroDossier = $numeroDossier;
 
         return $this;
     }
 
     public function getIntermediaireDeVente(): ?string
     {
-        return $this->intermediaire_de_vente;
+        return $this->intermediaireDeVente;
     }
 
-    public function setIntermediaireDeVente(?string $intermediaire_de_vente): static
+    public function setIntermediaireDeVente(?string $intermediaireDeVente): static
     {
-        $this->intermediaire_de_vente = $intermediaire_de_vente;
+        $this->intermediaireDeVente = $intermediaireDeVente;
 
         return $this;
     }
 
     public function getDateEvenement(): ?\DateTimeInterface
     {
-        return $this->date_evenement;
+        return $this->dateEvenement;
     }
 
-    public function setDateEvenement(\DateTimeInterface $date_evenement): static
+    public function setDateEvenement(?\DateTimeInterface $dateEvenement): static
     {
-        $this->date_evenement = $date_evenement;
+        $this->dateEvenement = $dateEvenement;
 
         return $this;
     }
 
     public function getOrigineEvenement(): ?string
     {
-        return $this->origine_evenement;
+        return $this->origineEvenement;
     }
 
-    public function setOrigineEvenement(string $origine_evenement): static
+    public function setOrigineEvenement(?string $origineEvenement): static
     {
-        $this->origine_evenement = $origine_evenement;
+        $this->origineEvenement = $origineEvenement;
 
         return $this;
     }

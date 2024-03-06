@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('app_excel_data_delete', {'id': excel_datum.id}) }}" onsubmit="return confirm('Voulez-vous vraiment effacer?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ excel_datum.id) }}">
+    <button class="btn">Supprimer</button>
+</form>

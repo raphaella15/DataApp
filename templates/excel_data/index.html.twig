@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ExcelData index{% endblock %}
+
+{% block body %}
+    <h1>Tableau de données</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>CompteAffaire</th>
+                <th>CompteEvenement</th>
+                <th>CompteDernierEvenement</th>
+                <th>NumeroFiche</th>
+                <th>LibelleCivilite</th>
+                <th>ProprietaireActuel</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>NumEtNomDeVoie</th>
+                <th>ComplementAdresse</th>
+                <th>CodePostal</th>
+                <th>Ville</th>
+                <th>TelephoneDomicile</th>
+                <th>TelephonePortable</th>
+                <th>TelephoneJob</th>
+                <th>Email</th>
+                <th>DateDeMiseEnCirculation</th>
+                <th>DateAchat</th>
+                <th>DateDernierEvenement</th>
+                <th>Marque</th>
+                <th>Modele</th>
+                <th>Version</th>
+                <th>VIN</th>
+                <th>Immatriculation</th>
+                <th>TypeDeProspect</th>
+                <th>Kilometrage</th>
+                <th>Energie</th>
+                <th>VendeurVN</th>
+                <th>VendeurVO</th>
+                <th>CommentaireDeFacturation</th>
+                <th>Type</th>
+                <th>NumeroDossier</th>
+                <th>IntermediaireDeVente</th>
+                <th>DateEvenement</th>
+                <th>OrigineEvenement</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for excel_datum in excel_datas %}
+            <tr>
+                <td>{{ excel_datum.id }}</td>
+                <td>{{ excel_datum.compteAffaire }}</td>
+                <td>{{ excel_datum.compteEvenement }}</td>
+                <td>{{ excel_datum.compteDernierEvenement }}</td>
+                <td>{{ excel_datum.numeroFiche }}</td>
+                <td>{{ excel_datum.libelleCivilite }}</td>
+                <td>{{ excel_datum.proprietaireActuel }}</td>
+                <td>{{ excel_datum.nom }}</td>
+                <td>{{ excel_datum.prenom }}</td>
+                <td>{{ excel_datum.numEtNomDeVoie }}</td>
+                <td>{{ excel_datum.complementAdresse }}</td>
+                <td>{{ excel_datum.codePostal }}</td>
+                <td>{{ excel_datum.ville }}</td>
+                <td>{{ excel_datum.telephoneDomicile }}</td>
+                <td>{{ excel_datum.telephonePortable }}</td>
+                <td>{{ excel_datum.telephoneJob }}</td>
+                <td>{{ excel_datum.email }}</td>
+                <td>{{ excel_datum.dateDeMiseEnCirculation ? excel_datum.dateDeMiseEnCirculation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ excel_datum.dateAchat ? excel_datum.dateAchat|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ excel_datum.dateDernierEvenement ? excel_datum.dateDernierEvenement|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ excel_datum.marque }}</td>
+                <td>{{ excel_datum.modele }}</td>
+                <td>{{ excel_datum.version }}</td>
+                <td>{{ excel_datum.VIN }}</td>
+                <td>{{ excel_datum.immatriculation }}</td>
+                <td>{{ excel_datum.typeDeProspect }}</td>
+                <td>{{ excel_datum.kilometrage }}</td>
+                <td>{{ excel_datum.energie }}</td>
+                <td>{{ excel_datum.vendeurVN }}</td>
+                <td>{{ excel_datum.vendeurVO }}</td>
+                <td>{{ excel_datum.commentaireDeFacturation }}</td>
+                <td>{{ excel_datum.type }}</td>
+                <td>{{ excel_datum.numeroDossier }}</td>
+                <td>{{ excel_datum.intermediaireDeVente }}</td>
+                <td>{{ excel_datum.dateEvenement ? excel_datum.dateEvenement|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ excel_datum.origineEvenement }}</td>
+                <td>
+                    <a href="{{ path('app_excel_data_show', {'id': excel_datum.id}) }}">Voir</a>
+                    <a href="{{ path('app_excel_data_edit', {'id': excel_datum.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="37">Aucun élément</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_excel_data_new') }}">Ajouter</a>
+{% endblock %}

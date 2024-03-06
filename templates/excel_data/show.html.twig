@@ -1,0 +1,162 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tableau des données{% endblock %}
+
+{% block body %}
+    <h1>Tableau des données</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ excel_datum.id }}</td>
+            </tr>
+            <tr>
+                <th>CompteAffaire</th>
+                <td>{{ excel_datum.compteAffaire }}</td>
+            </tr>
+            <tr>
+                <th>CompteEvenement</th>
+                <td>{{ excel_datum.compteEvenement }}</td>
+            </tr>
+            <tr>
+                <th>CompteDernierEvenement</th>
+                <td>{{ excel_datum.compteDernierEvenement }}</td>
+            </tr>
+            <tr>
+                <th>NumeroFiche</th>
+                <td>{{ excel_datum.numeroFiche }}</td>
+            </tr>
+            <tr>
+                <th>LibelleCivilite</th>
+                <td>{{ excel_datum.libelleCivilite }}</td>
+            </tr>
+            <tr>
+                <th>ProprietaireActuel</th>
+                <td>{{ excel_datum.proprietaireActuel }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ excel_datum.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ excel_datum.prenom }}</td>
+            </tr>
+            <tr>
+                <th>NumEtNomDeVoie</th>
+                <td>{{ excel_datum.numEtNomDeVoie }}</td>
+            </tr>
+            <tr>
+                <th>ComplementAdresse</th>
+                <td>{{ excel_datum.complementAdresse }}</td>
+            </tr>
+            <tr>
+                <th>CodePostal</th>
+                <td>{{ excel_datum.codePostal }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ excel_datum.ville }}</td>
+            </tr>
+            <tr>
+                <th>TelephoneDomicile</th>
+                <td>{{ excel_datum.telephoneDomicile }}</td>
+            </tr>
+            <tr>
+                <th>TelephonePortable</th>
+                <td>{{ excel_datum.telephonePortable }}</td>
+            </tr>
+            <tr>
+                <th>TelephoneJob</th>
+                <td>{{ excel_datum.telephoneJob }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ excel_datum.email }}</td>
+            </tr>
+            <tr>
+                <th>DateDeMiseEnCirculation</th>
+                <td>{{ excel_datum.dateDeMiseEnCirculation ? excel_datum.dateDeMiseEnCirculation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateAchat</th>
+                <td>{{ excel_datum.dateAchat ? excel_datum.dateAchat|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateDernierEvenement</th>
+                <td>{{ excel_datum.dateDernierEvenement ? excel_datum.dateDernierEvenement|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Marque</th>
+                <td>{{ excel_datum.marque }}</td>
+            </tr>
+            <tr>
+                <th>Modele</th>
+                <td>{{ excel_datum.modele }}</td>
+            </tr>
+            <tr>
+                <th>Version</th>
+                <td>{{ excel_datum.version }}</td>
+            </tr>
+            <tr>
+                <th>VIN</th>
+                <td>{{ excel_datum.VIN }}</td>
+            </tr>
+            <tr>
+                <th>Immatriculation</th>
+                <td>{{ excel_datum.immatriculation }}</td>
+            </tr>
+            <tr>
+                <th>TypeDeProspect</th>
+                <td>{{ excel_datum.typeDeProspect }}</td>
+            </tr>
+            <tr>
+                <th>Kilometrage</th>
+                <td>{{ excel_datum.kilometrage }}</td>
+            </tr>
+            <tr>
+                <th>Energie</th>
+                <td>{{ excel_datum.energie }}</td>
+            </tr>
+            <tr>
+                <th>VendeurVN</th>
+                <td>{{ excel_datum.vendeurVN }}</td>
+            </tr>
+            <tr>
+                <th>VendeurVO</th>
+                <td>{{ excel_datum.vendeurVO }}</td>
+            </tr>
+            <tr>
+                <th>CommentaireDeFacturation</th>
+                <td>{{ excel_datum.commentaireDeFacturation }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ excel_datum.type }}</td>
+            </tr>
+            <tr>
+                <th>NumeroDossier</th>
+                <td>{{ excel_datum.numeroDossier }}</td>
+            </tr>
+            <tr>
+                <th>IntermediaireDeVente</th>
+                <td>{{ excel_datum.intermediaireDeVente }}</td>
+            </tr>
+            <tr>
+                <th>DateEvenement</th>
+                <td>{{ excel_datum.dateEvenement ? excel_datum.dateEvenement|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>OrigineEvenement</th>
+                <td>{{ excel_datum.origineEvenement }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_excel_data_index') }}">Voir la liste</a>
+
+    <a href="{{ path('app_excel_data_edit', {'id': excel_datum.id}) }}">Editer</a>
+
+    {{ include('excel_data/_delete_form.html.twig') }}
+{% endblock %}
